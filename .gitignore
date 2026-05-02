@@ -196,3 +196,4 @@ pyrightconfig.json
 
 ollama/models/*
 !ollama/models/.gitkeep
+log.txt

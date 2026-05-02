@@ -2,7 +2,9 @@ import subprocess
 import os
 import sys
 
-OLLAMA_PATH = os.path.join("ollama", "ollama.exe")
+from platform_utils import get_ollama_executable
+
+OLLAMA_PATH = get_ollama_executable()
 
 
 def run_ollama_command(args):
@@ -16,7 +18,7 @@ def run_ollama_command(args):
         )
         process.wait()
     except FileNotFoundError:
-        print("Error: ollama.exe not found in /ollama folder.")
+        print("Error: ollama executable not found in /ollama folder or PATH.")
     except Exception as e:
         print("Error running command:", e)
 
