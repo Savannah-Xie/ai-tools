@@ -1,13 +1,14 @@
 from tools.tools import *
 
 TOOLS = {
-    "cart_add": cart_add,
-    "cart_total": cart_total,
-    "cart_list": cart_list,
+  
+    "update_essay": update_essay,
+    "common_word_counter": common_word_counter,
+    "sentence_counter": sentence_counter,
 }
 
 TOOL_DESCRIPTIONS = {
-    "cart_add": "Add an item to the cart. args: item:str, cost:int",
-    "cart_total": "Return total cost of all items in cart. args: none",
-    "cart_list": "Return all items currently in cart. args: none",
+    "update_essay": "Updates text in the state with user given text that other tools will analyze. args: text: str",
+    "common_word_counter": "Counts the common words in the texts. args: none",
+    "sentence_counter": "Counts the sentences in the texts. args: none "
 }

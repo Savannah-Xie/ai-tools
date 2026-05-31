@@ -1,14 +1,15 @@
 from core.state import STATE
+import re
+from collections import Counter
 
-def cart_add(item: str, cost: int):
-    STATE["cart"].append({
-        "name": item,
-        "price": cost
-    })
-    return f"Added {item} for ${cost}"
+def update_essay(text: str):
+    STATE["user_essay"] = text
 
-def cart_total():
-    return sum(entry["price"] for entry in STATE["cart"])
+def common_word_counter():
+    words = re.findall(r'\b\w+\b', STATE["user_essay"].lower())
+    word_counts = Counter(words)
+    return word_counts.most_common(3)
 
-def cart_list():
-    return STATE["cart"]
+def sentence_counter():
+    sentences = re.findall(r'[^.!?]+[.!?]', STATE["user_essay"])
+    return len(sentences)
